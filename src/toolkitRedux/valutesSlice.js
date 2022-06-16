@@ -11,9 +11,7 @@ export const fetchValutes = createAsyncThunk(
       }
 
       const data = await res.json();
-      // console.log(data.rates);
-
-      return Object.entries(data.rates);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -24,8 +22,17 @@ const valutesSlice = createSlice({
   name: "valutes",
   initialState: {
     valutesList: [],
+    baseValute: "RUB",
     loading: false,
     error: null,
+    // статичный массив с курсами для рубля, в силу отсутствия возможности выбирать базовую валюту
+    rublesValues: [],
+  },
+  reducers: {
+    changeBaseValute(state, action) {
+      state.baseValute = action.payload.baseValute;
+      state.valutesList = action.payload.newValutesList;
+    },
   },
   extraReducers: {
     [fetchValutes.pending]: (state) => {
@@ -35,7 +42,9 @@ const valutesSlice = createSlice({
     [fetchValutes.fulfilled]: (state, action) => {
       state.loading = false;
       state.error = null;
-      state.valutesList = action.payload;
+      state.valutesList = Object.entries(action.payload.rates);
+      state.baseValute = action.payload.base;
+      state.rublesValues = Object.entries(action.payload.rates);
     },
     [fetchValutes.rejected]: (state, action) => {
       state.loading = false;
@@ -43,5 +52,7 @@ const valutesSlice = createSlice({
     },
   },
 });
+
+export const { changeBaseValute } = valutesSlice.actions;
 
 export default valutesSlice.reducer;

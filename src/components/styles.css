@@ -1,4 +1,143 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../assets/Montserrat/static/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url("../assets/Montserrat/static/Montserrat-Bold.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat";
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin-left: calc(100vw - 100%);
+  margin-right: 0;
+  overflow-x: hidden;
+}
+
 .app {
-  background-color: red;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 800px;
+  margin: auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+nav {
+  width: 450px;
+  margin: auto;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+.line {
+  height: 3px;
+  background: rgb(70, 95, 255);
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+input {
+  width: 480px;
+  height: 50px;
+  outline: none;
+  font-size: 30px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+select {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+}
+
+button {
+  transition: 0.3s;
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: rgb(70, 95, 255);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:not([disabled]):hover {
+  transition: 0.3s;
+  background-color: #fff;
+  color: black;
+  border: 2px solid black;
+}
+
+button:disabled {
+  background-color: rgb(156, 156, 156);
+  cursor: default;
+}
+
+.navButton {
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 200px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form {
+  width: 700px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.result {
+  margin-top: 50px;
+  font-size: 60px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.notValid {
+  color: red;
+  margin-top: 50px;
+  font-size: 35px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.loading {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.error {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 800;
+  color: red;
+}
+
+.valutesList {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.valuteBlock {
+  font-size: 25px;
 }
